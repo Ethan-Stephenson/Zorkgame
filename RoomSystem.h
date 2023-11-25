@@ -1,67 +1,87 @@
+#ifndef ROOMSYSTEM_H
+#define ROOMSYSTEM_H
+
 #include "Constants.h"
 #include <iostream>
 #include <string>
-using namespace std;
-class room{
+using std::string;
+class Room{
 public:
     void setRoom(int);
-    int getRoom();
+    int getRoom() const;
     string displayAdjecentRooms();
-    void setDescription(string);
     string getDescription();
-    void setAdjecent(const int[5]);
-    room() {
-
-    }
-
 private:
+    void setAdjecent(const int[5]);
+    void setDescription(string);
     void updateRoom();
-
     string description;
     int roomNumber{1};
     int adjecentRooms[5]{0,0,0,0,0};
 };
-
-
-void room::setRoom(int setRoom) {
-    roomNumber = setRoom;
-}
-
-void room::setDescription(string newDescription){
-    description = newDescription;
-}
-
-void room::setAdjecent(const int* newAdjecent) {
-     memcpy(adjecentRooms, newAdjecent,sizeof(adjecentRooms));
-}
-
-
-int room::getRoom() {
+//Get
+int Room::getRoom() const{
     return roomNumber;
 }
 
-string room::getDescription() {
+string Room::getDescription() {
     return description;
 }
 
-string room::displayAdjecentRooms() {
+//Set
+void Room::setRoom(int setRoom) {
+    roomNumber = setRoom;
+    updateRoom();
+}
+void Room::setDescription(string newDescription){
+    description = newDescription;
+}
+void Room::setAdjecent(const int* newAdjecent) {
+    for(size_t i = 0; i < 5; i++){
+        adjecentRooms[i] = newAdjecent[i];
+    }
+}
+
+//Member Functions
+void Room::updateRoom(){
+    if(roomNumber == 1){
+        setDescription(constants::kitchenDesc);
+        setAdjecent(constants::kitchenAdjecent);
+    }
+    else if(roomNumber == 2) {
+        setDescription(constants::medevialDesc);
+        setAdjecent(constants::medevialAdjecent);
+    }
+    else if(roomNumber == 3){
+        setDescription(constants::computerDesc);
+        setAdjecent(constants::computerAdjecent);
+    }
+    else if(roomNumber == 4) {
+        setDescription(constants::greenhouseDesc);
+        setAdjecent(constants::greenhouseAdjecent);
+    }
+    else if(roomNumber == 5) {
+        setDescription(constants::workshopDesc);
+        setAdjecent(constants::workshopAdjecent);
+    }
+}
+string Room::displayAdjecentRooms() {
     string text = "The rooms adjacent to you are: ";
-    for(int i = 0; i < 5; i++){
-        cout << adjecentRooms[i] << endl;
+    for(size_t i = 0; i < 5; i++){
         if(adjecentRooms[i] == 1){
             if(i == constants::kitchenId-1){
                 text.append("Kitchen ");
             }
-            if(i == constants::medevialId-1){
+            else if(i == constants::medevialId-1){
                 text.append("Medieval ");
             }
-            if(i == constants::computerID-1){
+            else if(i == constants::computerID-1){
                 text.append("Computer-Room ");
             }
-            if(i == constants::greenhouseID-1){
+            else if(i == constants::greenhouseID-1){
                 text.append("Greenhouse ");
             }
-            if(i == constants::workshopID-1){
+            else if(i == constants::workshopID-1){
                 text.append("Workshop");
             }
         }
@@ -70,39 +90,4 @@ string room::displayAdjecentRooms() {
     return text;
 }
 
-class kitchen : public room{
-public:
-    void kitchenUpdate();
-};
-
-void kitchen::kitchenUpdate() {
-    setRoom(constants::kitchenId);
-    setDescription(constants::kitchenDesc);
-    setAdjecent(constants::kitchenAdjecent);
-}
-
-
-class greenHouse{
-
-};
-
-class computerRoom : public room{
-public:
-    void computerUpdate();
-    void movingPlayerGame();
-};
-void computerRoom::computerUpdate() {
-    setRoom(constants::computerID);
-    setDescription(constants::computerDesc);
-    setAdjecent(constants::computerAdjecent);
-}
-class medevial{
-
-};
-
-class workShop{
-
-};
-
-
-
+#endif

@@ -1,3 +1,6 @@
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
 using std::string;
 struct constants{
 public:
@@ -24,9 +27,16 @@ public:
 
 
 
-
-
-
-
-
+    //Items
+    static const inline string bucket = "bucket";
+    static const inline string temperatureNote = "note";
+    static const inline string flour = "flour";
+    static const inline string sugar = "sugar";
+    static const inline string butter = "butter";
+    static const inline string cookieKey = "cookieKey";
+    static const inline string knife = "knife";
+    static const inline string torch = "torch";
+    static const inline string herbicide = "herbicide";
+    static const inline string waterBucket = "waterBucket";
 };
+#endif

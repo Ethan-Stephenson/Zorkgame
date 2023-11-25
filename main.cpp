@@ -1,22 +1,17 @@
 #include <iostream>
 #include "RoomSystem.h"
+#include "Inventory.h"
 using namespace std;
 int main() {
-    kitchen test2;
-    computerRoom test3;
-    int x;
+    Room room;
+    Inventory playerInventory;
+    room.setRoom(2);
+    string y;
     while(true)
     {
-        cin >> x;
-        if(x == 1){
-            test2.kitchenUpdate();
-            cout << test2.displayAdjecentRooms();
-
-        }
-        if(x == 3) {
-            test3.computerUpdate();
-            cout << test3.displayAdjecentRooms();
-        }
+        cin >> y;
+        playerInventory.grab(y, room.getRoom());
+        cout << playerInventory.playerHas("bucket");
 
     }
     return 0;
