@@ -1,7 +1,16 @@
 # ninja log v5
-2	232	7226452010688226	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
-233	313	7226452011467989	ZorkGame.exe	bb99edc2b4d38a18
-2	229	7226459170910751	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
-2	227	7226459380696954	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
-2	236	7226471416908165	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
-236	318	7226471417707793	ZorkGame.exe	bb99edc2b4d38a18
+1	284	7227315167008892	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
+285	440	7227315168504009	ZorkGame.exe	bb99edc2b4d38a18
+0	205	7227315195604654	build.ninja	8f8c548e89938a06
+2	242	7227315499040613	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
+242	316	7227315499770708	ZorkGame.exe	bb99edc2b4d38a18
+2	240	7227349620684862	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
+240	325	7227349621514297	ZorkGame.exe	bb99edc2b4d38a18
+2	239	7227420487269792	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
+239	345	7227420488297889	ZorkGame.exe	bb99edc2b4d38a18
+1	258	7227421844660892	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
+267	346	7227421845525092	ZorkGame.exe	bb99edc2b4d38a18
+2	246	7227425965544538	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
+246	327	7227425966324304	ZorkGame.exe	bb99edc2b4d38a18
+2	261	7227445692580910	CMakeFiles/ZorkGame.dir/main.cpp.obj	a23f0293e85c7e2a
+261	345	7227445693400407	ZorkGame.exe	bb99edc2b4d38a18

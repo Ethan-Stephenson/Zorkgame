@@ -4,4 +4,5 @@ project(ZorkGame)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(ZorkGame main.cpp RoomSystem.h Constants.h Inventory.h
-        global.h)
+        GameEvents.h
+)
