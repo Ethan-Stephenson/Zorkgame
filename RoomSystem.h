@@ -210,8 +210,16 @@ void Room::inspect(string userInput, Inventory &playerInventory, GameEvents &eve
                 playerInventory.grab("sugar");
             }
         }
-        else if(userInput == "paintings"){
-
+        else if(userInput == "paintings" && events.getEvent(1) == 0){
+            cout << constants::paintings;
+            cout << constants::paintingsQuestion;
+            cin >> userInput;
+            if(userInput == "y"){
+                events.paintingArrange();
+            }
+        }
+        else if(userInput == "paintings" && events.getEvent(1) == 0){
+            cout << constants::paintingsDone;
         }
     }
 }

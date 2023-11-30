@@ -11,7 +11,7 @@ public:
     constexpr static const int kitchenAdjecent[5]{0,1,0,0,0};
     //castle
     static const int castleId = 2;
-    static const inline string castleDesc = "You are inside a castle room, there is a fireplace with a torch above it to your left a spice cabinet, and to your right are five paintings.";
+    static const inline string castleDesc = "You are inside a castle room, there is a fireplace with a torch above it, to your left a spice cabinet, and to your right are five paintings.";
     constexpr static const int castleAdjecent[5]{1,0,1,0,0};
     //ComputerRoom
     static const int computerID = 3;
@@ -56,9 +56,11 @@ public:
     static const inline string ovenCompleted = "You put all the ingredients inside the oven and turn it to the correct temperature\n After 10 minutes of waiting the oven dings and reveals a cookie key\n";
     static const inline string torchGrab = "A torch sits on a metal stand, would you like to grab it?(y/n)\n";
     static const inline string spiceCabinet = "A large wooden cabinet filled with exotic spices is locked shut\n When looking though the glass on the front you can see what looks like sugar\n";
-    static const inline string spiceCabinetOpen = "The spice cabinet is now open, and in the front you can see a bag of sugar\n Would you like to grab the sugar?(y/n)\n";
-    static const inline string paintings = "5 paintings are hanged on the walls, here is each description:\n\n Would you like to grab the sugar?(y/n)\n";
-
+    static const inline string spiceCabinetOpen = "The spice cabinet is now open, and in the front you can see a bag of sugar\nWould you like to grab the sugar?(y/n)\n";
+    static const inline string paintings = "5 paintings are hanged on the walls each portraying a battle, here is each description:\n1:French forces losing at Waterloo\n2:Troops storming the beaches of Normandy"
+                                           "\n3:Units charging into Gettysburg\n4:The British surrendering at the end of the Battle of York Town\n5:Bullets flying over no man's land in The Battle of Verdun\n";
+    static const inline string paintingsQuestion = "Would you like to try to reorder them?(y/n)\n";
+    static const inline string paintingsDone = "The paintings are already arranged";
 
 
 };
