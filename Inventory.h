@@ -70,36 +70,35 @@ void Inventory::grab(string item) {
         std::cout << "No item by that name, or item is not accessible" << std::endl;
         return;
     }
-
 }
 
 bool Inventory::playerHas(string item) {
     if(item == constants::bucket){
         return bucket;
     }
-    if(item == constants::temperatureNote){
+    else if(item == constants::temperatureNote){
         return temperatureNote;
     }
-    if(item == constants::flour){
+    else if(item == constants::flour){
         return flour;
     }
-    if(item == constants::sugar){
+    else if(item == constants::sugar){
         return sugar;
     }
-    if(item == constants::butter){
+    else if(item == constants::butter){
         return butter;
-    }if(item == constants::cookieKey){
+    }else if(item == constants::cookieKey){
         return cookieKey;
-    }if(item == constants::knife){
+    }else if(item == constants::knife){
         return knife;
     }
-    if(item == constants::torch){
+    else if(item == constants::torch){
         return torch;
     }
-    if(item == constants::herbicide){
+    else if(item == constants::herbicide){
         return herbicide;
     }
-    if(item == constants::waterBucket){
+    else if(item == constants::waterBucket){
         return waterBucket;
     }
     else{

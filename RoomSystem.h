@@ -9,6 +9,9 @@
 using namespace std;
 class Room{
 public:
+    Room(){
+        updateRoom();
+    }
     void setRoom(string);
     void inspect(string, Inventory&, GameEvents&);
     int getRoom() const;
@@ -24,7 +27,9 @@ private:
     int roomNumber{1};
     int adjecentRooms[5]{0,1,0,0,0};
     bool gameCompleted = false;
+
 };
+
 //Get
 int Room::getRoom() const{
     return roomNumber;
@@ -152,7 +157,7 @@ void Room::displayInspectableItems(){
         cout << "Inspectable objects are: arugula, pipe, wheat, and machine" << endl;
     }
     else if(roomNumber == 5){
-        cout << "Inspectable objects are: pedestal" << endl;
+        cout << "Inspectable objects are: pedestal and bucket" << endl;
     }
 };
 
@@ -221,7 +226,98 @@ void Room::inspect(string userInput, Inventory &playerInventory, GameEvents &eve
         else if(userInput == "paintings" && events.getEvent(1) == 0){
             cout << constants::paintingsDone;
         }
+        else{
+            cout << "Invalid Inspect\n";
+        }
     }
+   else if(roomNumber == 3){
+       if(userInput == "computer" && events.getEvent(0) == 0){
+           cout << constants::computer;
+           cin >> userInput;
+           if(userInput == "y"){
+               events.computerGame();
+           }
+       }
+        if(userInput == "computer" && events.getEvent(0) == 1){
+            cout << constants::computerDone;
+        }
+       else if (userInput == "safe" && events.getEvent(0) == 0){
+           cout << constants::safe;
+       }
+       else if (userInput == "safe" && events.getEvent(0) == 1){
+           cout << constants::safeOpen;
+           cin >> userInput;
+           if(userInput == "y"){
+               playerInventory.grab("note");
+           }
+       }
+   }
+   else if(roomNumber == 4){
+       if(userInput == "arugula" && events.getEvent(2) == 0){
+           cout << constants::arugula;
+           cin >> userInput;
+           if(userInput == "y"){
+               events.arugulaFight(playerInventory);
+           }
+       }
+       else if (userInput == "arugula" && events.getEvent(2) == 1){
+           cout << constants::arugulaDead;
+       }
+       else if(userInput == "pipe" && events.getEvent(2) == 0){
+           cout << constants::arugula;
+           cin >> userInput;
+           if(userInput == "y"){
+               events.arugulaFight(playerInventory);
+           }
+       }
+       else if(userInput == "pipe" && events.getEvent(2) == 1){
+           cout << constants::pipe;
+           cin >> userInput;
+           if(userInput == "y"){
+               events.setEvent(4, 1);
+               cout << constants::waterFlow;
+           }
+       }
+       else if(userInput == "machine" && playerInventory.playerHas("wheat") == true){
+           cout << constants::machineWheat;
+           cin >> userInput;
+           if(userInput == "y"){
+               playerInventory.grab("flour");
+           }
+       }
+       else{
+           cout << "Invalid Inspect\n";
+       }
+   }
+  else if(roomNumber == 5){
+      if(userInput == "bucket" && playerInventory.playerHas("bucket") == false){
+          cout << constants::bucketItem;
+          cin >> userInput;
+          if(userInput == "y"){
+              playerInventory.grab("bucket");
+          }
+      }
+      else if(userInput == "bucket" && playerInventory.playerHas("bucket") == true){
+          cout << constants::bucketGrabbed;
+      }
+      else if(userInput == "pedestal" && events.getEvent(3) == 0){
+          cout << constants::pedestal;
+          cin >> userInput;
+          if(userInput == "y"){
+              events.workshopGame();
+          }
+      }
+      else if(userInput == "pedestal" && events.getEvent(3) == 1){
+          cout << constants::pedestalDone;
+          cin >> userInput;
+          if(userInput == "y"){
+              playerInventory.grab("butter");
+          }
+      }
+      else{
+          cout << "Invalid Inspect\n";
+      }
+  }
 }
 
 #endif
